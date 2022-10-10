@@ -1,6 +1,7 @@
 ---
 import HeaderLink from './HeaderLink.astro'
-import { HOMEPAGE_URL, SITE_TITLE } from '../config'
+import { HOMEPAGE_URL } from '../config'
+import { IoLogoGithub } from 'react-icons/io5'
 ---
 
 <header class="fixed w-full z-20 backdrop-blur-md">
@@ -10,9 +11,10 @@ import { HOMEPAGE_URL, SITE_TITLE } from '../config'
         Martin Gomez Loira
       </h2>
       <div class="items-center gap-6 hidden md:flex">
-        <HeaderLink href={HOMEPAGE_URL}>About me</HeaderLink>
-        <HeaderLink href="https://github.com/withastro/astro" target="_blank"
-          >Source</HeaderLink>
+        <HeaderLink href="/about">About me</HeaderLink>
+        <HeaderLink class="flex items-center gap-2" href="https://github.com/withastro/astro" target="_blank"
+          ><IoLogoGithub />Source</HeaderLink
+        >
       </div>
       <div class="flex-1"></div>
     </nav>
