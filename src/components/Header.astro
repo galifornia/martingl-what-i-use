@@ -2,6 +2,7 @@
 import HeaderLink from './HeaderLink.astro'
 import { IoLogoGithub } from 'react-icons/io5'
 import { FootprintIcon } from './icons/footprint'
+import ThemeToggleButton from './ThemeToggleButton';
 ---
 
 <header class="fixed w-full z-20 backdrop-blur-md">
@@ -23,6 +24,7 @@ import { FootprintIcon } from './icons/footprint'
         >
       </div>
       <div class="flex-1"></div>
+	  <ThemeToggleButton client:load />
     </nav>
   </div>
 </header>
