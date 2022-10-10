@@ -1,19 +1,25 @@
 ---
 import HeaderLink from './HeaderLink.astro'
-import { HOMEPAGE_URL } from '../config'
 import { IoLogoGithub } from 'react-icons/io5'
+import { FootprintIcon } from './icons/footprint'
 ---
 
 <header class="fixed w-full z-20 backdrop-blur-md">
   <div class="mx-auto max-w-3xl">
     <nav class="flex items-center md:justify-center gap-3 text-base">
-      <h2 class="font-semibold tracking-tighter p-2 font-mplus text-lg">
-        Martin Gomez Loira
-      </h2>
+      <a class="flex">
+        <h2 class="font-semibold tracking-tighter p-2 font-mplus text-lg">
+          Martin Gomez Loira
+        </h2>
+        <FootprintIcon />
+      </a>
+
       <div class="items-center gap-6 hidden md:flex">
         <HeaderLink href="/about">About me</HeaderLink>
-        <HeaderLink class="flex items-center gap-2" href="https://github.com/withastro/astro" target="_blank"
-          ><IoLogoGithub />Source</HeaderLink
+        <HeaderLink
+          class="flex items-center gap-2"
+          href="https://github.com/withastro/astro"
+          target="_blank"><IoLogoGithub />Source</HeaderLink
         >
       </div>
       <div class="flex-1"></div>
