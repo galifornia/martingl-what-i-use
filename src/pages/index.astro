@@ -9,11 +9,16 @@ import { IoArrowForward } from 'react-icons/io5'
 import Hero from '../components/Hero.astro'
 import { Image } from '@astrojs/image/components'
 
-const posts = (await Astro.glob('./posts/*.md')).sort(
-  (a: any, b: any) =>
-    new Date(b.frontmatter.pubDate).valueOf() -
-    new Date(a.frontmatter.pubDate).valueOf(),
-)
+let posts: any = []
+try {
+  posts = (await Astro.glob('./posts/*.md')).sort(
+    (a: any, b: any) =>
+      new Date(b.frontmatter.pubDate).valueOf() -
+      new Date(a.frontmatter.pubDate).valueOf(),
+  )
+} catch (e) {
+  console.log(e)
+}
 ---
 
 <!DOCTYPE html>
@@ -46,7 +51,7 @@ const posts = (await Astro.glob('./posts/*.md')).sort(
         <section>
           <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
             {
-              posts.map(post => (
+              posts.map((post: any) => (
                 <li class="text-center mb-4">
                   <a href={post.url}>
                     <Image
