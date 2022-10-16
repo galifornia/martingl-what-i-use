@@ -1,0 +1,17 @@
+---
+import TAGS from '../../data/tags'
+import CategoryPosts from '../../layouts/CategoryPosts.astro'
+
+export function getStaticPaths() {
+  return TAGS.map(tag => {
+    return {
+      params: { id: tag },
+      props: { tag },
+    }
+  })
+}
+
+const { tag } = Astro.props
+---
+
+<CategoryPosts category={tag} />

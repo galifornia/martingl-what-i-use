@@ -1,0 +1,43 @@
+---
+import BaseHead from '../components/BaseHead.astro'
+import Body from '../components/Body.astro'
+import Breadcrumb from '../components/Breadcrumb.astro'
+import Content from '../components/Content.astro'
+import Header from '../components/Header.astro'
+import Hero from '../components/Hero.astro'
+import { SITE_DESCRIPTION, SITE_TITLE } from '../config'
+
+export interface Props {
+  category: string
+}
+
+const { category } = Astro.props
+
+let posts = []
+try {
+  posts = (await Astro.glob('../pages/posts/*.md')).sort(
+    (a, b) =>
+      new Date(b.frontmatter.createdAt).valueOf() -
+      new Date(a.frontmatter.createdAt).valueOf(),
+  )
+} catch (e) {
+  console.log(e)
+}
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <Body>
+    <Header title={SITE_TITLE} />
+    <main class="pt-[56px]">
+      <Hero />
+      <Content>
+        <Breadcrumb>{category}</Breadcrumb>
+      </Content>
+    </main>
+  </Body>
+
+</html>
