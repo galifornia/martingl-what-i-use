@@ -2,7 +2,8 @@
 import HeaderLink from './HeaderLink.astro'
 import { IoLogoGithub } from 'react-icons/io5'
 import { FootprintIcon } from './icons/footprint'
-import ThemeToggleButton from './ThemeToggleButton';
+import ThemeToggleButton from './ThemeToggleButton'
+import DropdownMenu from './DropdownMenu'
 ---
 
 <header class="fixed w-full z-20 backdrop-blur-md">
@@ -24,7 +25,8 @@ import ThemeToggleButton from './ThemeToggleButton';
         >
       </div>
       <div class="flex-1"></div>
-	  <ThemeToggleButton client:load />
+      <ThemeToggleButton client:visible />
+      <DropdownMenu client:visible />
     </nav>
   </div>
 </header>
