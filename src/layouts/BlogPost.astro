@@ -9,14 +9,14 @@ export interface Props {
   content: {
     title: string
     description: string
-    pubDate?: string
-    updatedDate?: string
+    createdAt?: string
+    updatedAt?: string
     heroImage?: string
   }
 }
 
 const {
-  content: { title, description, pubDate, updatedDate, heroImage },
+  content: { title, description, createdAt, updatedAt, heroImage },
 } = Astro.props
 ---
 
@@ -47,11 +47,11 @@ const {
 
           <h1 class="text-xl font-bold my-2 font-mplus">{title}</h1>
 		  <div class="font-mplus">{description}</div>
-          {pubDate && <time class="block my-2 font-mplus">{pubDate}</time>}
+          {createdAt && <time class="block my-2 font-mplus">Created on {new Date(createdAt).toLocaleString("en-US")}</time>}
           {
-            updatedDate && (
+            updatedAt && (
               <div>
-                Last updated on <time>{updatedDate}</time>
+                Last updated on <time>{new Date(updatedAt).toLocaleString("en-US")}</time>
               </div>
             )
           }
