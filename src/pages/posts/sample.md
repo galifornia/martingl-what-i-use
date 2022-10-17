@@ -7,8 +7,8 @@ title: Sample title
 createdAt: 1663119142469
 updatedAt: 1663119142469
 tags:
-    - Computing
-    - Other
+    - computing
+    - philosophy
 heroImage: /placeholder-hero.jpg
 ---
 
