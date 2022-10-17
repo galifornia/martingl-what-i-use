@@ -30,8 +30,8 @@ export default function DropdownMenu() {
             <div className="px-3 py-2 uppercase font-bold text-xs">
               Categories
             </div>
-            {TAGS.map(tag => (
-              <DropdownMenuItem href={`/categories/${tag}`}>
+            {TAGS.map((tag, i) => (
+              <DropdownMenuItem key={i} href={`/categories/${tag}`}>
                 {tag}
               </DropdownMenuItem>
             ))}
